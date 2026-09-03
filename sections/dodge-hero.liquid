@@ -1,0 +1,207 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<div class="dodge-hero" style="--dodge-hero-height: {{ s.height }}px; --dodge-hero-overlay: {{ s.overlay_opacity | divided_by: 100.0 }};">
+  {%- if s.image != blank -%}
+    {{
+      s.image
+      | image_url: width: 3840
+      | image_tag:
+        class: 'dodge-hero__image',
+        widths: '750, 1100, 1500, 1920, 2560, 3840',
+        sizes: '100vw',
+        alt: s.image.alt | default: s.heading_line_1,
+        loading: 'eager',
+        fetchpriority: 'high'
+    }}
+  {%- else -%}
+    <div class="dodge-hero__image dodge-hero__image--placeholder"></div>
+  {%- endif -%}
+
+  <div class="dodge-hero__overlay"></div>
+
+  <div class="dodge-hero__inner dodge-section__inner">
+    <div class="dodge-hero__content">
+      <h1 class="dodge-hero__title">
+        {%- if s.heading_line_1 != blank -%}<span>{{ s.heading_line_1 }}</span>{%- endif -%}
+        {%- if s.heading_line_2 != blank -%}<span>{{ s.heading_line_2 }}</span>{%- endif -%}
+        {%- if s.heading_line_3 != blank -%}<span>{{ s.heading_line_3 }}</span>{%- endif -%}
+      </h1>
+
+      {%- if s.subheading != blank -%}
+        <p class="dodge-hero__text">{{ s.subheading }}</p>
+      {%- endif -%}
+
+      {%- if s.button_label != blank -%}
+        <a class="dodge-btn dodge-hero__button" {% if s.button_link != blank %}href="{{ s.button_link }}"{% else %}role="link" aria-disabled="true"{% endif %}>
+          {{ s.button_label }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .dodge-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: var(--dodge-hero-height, 868px);
+    overflow: hidden;
+    font-family: var(--font-body--family);
+    background: #dce7ef;
+  }
+
+  .dodge-hero__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .dodge-hero__image--placeholder {
+    background: linear-gradient(120deg, #dce8f0 0%, #eef4f8 45%, #cfe0ea 100%);
+  }
+
+  .dodge-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgb(255 255 255 / var(--dodge-hero-overlay, 0.55)) 0%,
+      rgb(255 255 255 / var(--dodge-hero-overlay, 0.55)) 42%,
+      rgb(255 255 255 / 0) 72%
+    );
+  }
+
+  .dodge-hero__inner {
+    position: relative;
+    width: 100%;
+  }
+
+  .dodge-hero__content {
+    max-width: 620px;
+  }
+
+  .dodge-hero__title {
+    margin: 0;
+    font-size: 54px;
+    line-height: 1.24;
+    font-weight: 600;
+    color: var(--dodge-ink);
+    letter-spacing: -0.5px;
+  }
+
+  .dodge-hero__title span {
+    display: block;
+  }
+
+  .dodge-hero__text {
+    margin: 24px 0 0;
+    max-width: 460px;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--dodge-muted);
+  }
+
+  .dodge-hero__button {
+    margin-block-start: 32px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .dodge-hero__title { font-size: 40px; }
+  }
+
+  @media screen and (max-width: 749px) {
+    .dodge-hero {
+      min-height: 0;
+      padding-block: 56px;
+    }
+
+    .dodge-hero__title { font-size: 32px; }
+
+    .dodge-hero__overlay {
+      background: rgb(255 255 255 / 0.72);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Dodge — Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Height",
+      "min": 400,
+      "max": 1000,
+      "step": 4,
+      "unit": "px",
+      "default": 868
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Left fade opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 55
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading line 1",
+      "default": "Designed for Science."
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading line 2",
+      "default": "Built on Experience."
+    },
+    {
+      "type": "text",
+      "id": "heading_line_3",
+      "label": "Heading line 3",
+      "default": "Driven by Integrity."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Premium laboratory consumables, backed by reliable supply and responsive service."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Explore Product Lines"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dodge — Hero"
+    }
+  ]
+}
+{% endschema %}

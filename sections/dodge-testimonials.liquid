@@ -1,0 +1,146 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<div class="dodge-section{% if s.band %} dodge-section--band{% endif %}">
+  <div class="dodge-section__inner">
+    <div class="dodge-head dodge-testimonials__head">
+      {%- if s.heading != blank -%}
+        <h2 class="dodge-head__title">{{ s.heading }}</h2>
+      {%- endif -%}
+      {%- if s.subheading != blank -%}
+        <p class="dodge-head__subtitle">{{ s.subheading }}</p>
+      {%- endif -%}
+      {%- if s.show_rating -%}
+        <div class="dodge-testimonials__rating">{% render 'dodge-stars', size: 22 %}</div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="dodge-grid dodge-grid--3">
+        {%- for block in section.blocks -%}
+          {%- assign b = block.settings -%}
+          <figure class="dodge-card dodge-testimonial" {{ block.shopify_attributes }}>
+            {% render 'dodge-stars', size: 16 %}
+            {%- if b.quote != blank -%}
+              <blockquote class="dodge-testimonial__quote">{{ b.quote }}</blockquote>
+            {%- endif -%}
+            <figcaption class="dodge-testimonial__author">
+              {%- if b.name != blank -%}
+                <span class="dodge-testimonial__name">— {{ b.name }}</span>
+              {%- endif -%}
+              {%- if b.company != blank -%}
+                <span class="dodge-testimonial__company">{{ b.company }}</span>
+              {%- endif -%}
+            </figcaption>
+          </figure>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .dodge-stars {
+    display: inline-flex;
+    gap: 4px;
+    color: var(--dodge-star);
+    line-height: 0;
+  }
+
+  .dodge-testimonials__rating {
+    margin-block-start: 16px;
+  }
+
+  .dodge-testimonial {
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 28px 24px;
+    margin: 0;
+  }
+
+  .dodge-testimonial__quote {
+    margin: 0;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--dodge-muted);
+    flex: 1 1 auto;
+  }
+
+  .dodge-testimonial__author {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .dodge-testimonial__name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dodge-ink);
+  }
+
+  .dodge-testimonial__company {
+    font-size: 13px;
+    color: var(--dodge-muted);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Dodge — Testimonials",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Our Customers Are Saying"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Feedback from laboratories and organizations across our network."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show overall rating stars",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "band",
+      "label": "Use light background",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "“Consistent performance across multiple lots. The serum integrated seamlessly into our workflow and passed internal validation without issue. Packaging and delivery have been reliable.”"
+        },
+        { "type": "text", "id": "name", "label": "Name", "default": "Senior Scientist" },
+        { "type": "text", "id": "company", "label": "Company", "default": "Biotechnology Company" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dodge — Testimonials",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}

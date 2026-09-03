@@ -1,285 +1,353 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */{
+{
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
-      "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "text_color": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
-          "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-custom",
-            "custom_button_background": "rgba(0,0,0,0)",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
-      "name": "t:names.hero",
+    "hero": {
+      "type": "dodge-hero",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "background_color": "rgba(0,0,0,0)",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "height": 868,
+        "overlay_opacity": 55,
+        "heading_line_1": "Designed for Science.",
+        "heading_line_2": "Built on Experience.",
+        "heading_line_3": "Driven by Integrity.",
+        "subheading": "Premium laboratory consumables, backed by reliable supply and responsive service.",
+        "button_label": "Explore Product Lines",
+        "button_link": "shopify://collections"
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
+    "product_lines": {
+      "type": "dodge-product-lines",
       "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
+        "serum": {
+          "type": "card",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+            "title": "Serum",
+            "text": "High-quality serum for consistent and reliable cell culture performance.",
+            "button_label": "Explore Product Lines"
+          }
         },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
+        "liquid_handling": {
+          "type": "card",
           "settings": {
-            "product_card_gap": 4,
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
+            "title": "Liquid Handling",
+            "text": "Precision pipette tips and liquid handling consumables for accurate workflows",
+            "button_label": "Explore Product Lines"
+          }
+        },
+        "gloves": {
+          "type": "card",
+          "settings": {
+            "title": "Gloves",
+            "text": "High-quality nitrile and biodegradable gloves for laboratory and cleanroom environments.",
+            "button_label": "Explore Product Lines"
+          }
+        },
+        "cell_culture": {
+          "type": "card",
+          "settings": {
+            "title": "Cell Culture",
+            "text": "Plates, flasks and dishes designed for consistent cell culture workflows.",
+            "button_label": "Explore Product Lines"
+          }
         }
       },
-      "name": "t:names.product_list",
+      "block_order": ["serum", "liquid_handling", "gloves", "cell_culture"],
       "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "heading": "Explore Our Product Lines",
+        "subheading": "Browse our core product categories.",
+        "band": false,
+        "footer_label": "Explore Product Lines",
+        "footer_link": "shopify://collections"
+      }
+    },
+    "frequently_ordered": {
+      "type": "dodge-featured-products",
+      "settings": {
+        "heading": "Frequently Ordered Products",
+        "subheading": "Browse our core product categories.",
+        "products_to_show": 4,
+        "show_description": true,
+        "price_prefix": "Price:",
+        "button_label": "Add to cart",
+        "band": false
+      }
+    },
+    "support_cta": {
+      "type": "dodge-support-cta",
+      "blocks": {
+        "quote": {
+          "type": "action",
+          "settings": {
+            "label": "Request a Quote",
+            "caption": "Pricing & availability"
+          }
+        },
+        "samples": {
+          "type": "action",
+          "settings": {
+            "label": "Request Free Samples",
+            "caption": "Evaluate in your workflow"
+          }
+        },
+        "contact": {
+          "type": "action",
+          "settings": {
+            "label": "Contact Our Team",
+            "caption": "Speak with our team"
+          }
+        }
+      },
+      "block_order": ["quote", "samples", "contact"],
+      "settings": {
+        "heading": "Supporting Your Research and Operations.",
+        "text_1": "High-quality consumables trusted by laboratories, biotechnology and pharmaceutical companies, healthcare providers, production teams, and specialized industries",
+        "text_2": "Request a quote or free samples to evaluate our products with confidence before purchase.",
+        "band": false
+      }
+    },
+    "why_choose": {
+      "type": "dodge-why-choose",
+      "blocks": {
+        "supply": {
+          "type": "feature",
+          "settings": {
+            "icon": "package",
+            "title": "Reliable Supply",
+            "text": "Consistent product availability and dependable fulfillment."
+          }
+        },
+        "pricing": {
+          "type": "feature",
+          "settings": {
+            "icon": "tag",
+            "title": "Competitive Pricing",
+            "text": "High-quality products at fair and transparent pricing."
+          }
+        },
+        "delivery": {
+          "type": "feature",
+          "settings": {
+            "icon": "truck",
+            "title": "Fast Delivery",
+            "text": "Efficient logistics to keep your operations running smoothly."
+          }
+        },
+        "experience": {
+          "type": "feature",
+          "settings": {
+            "icon": "award",
+            "title": "Industry Experience",
+            "text": "Decades of experience supporting research and industry."
+          }
+        }
+      },
+      "block_order": ["supply", "pricing", "delivery", "experience"],
+      "settings": {
+        "heading": "Why Choose Scientific",
+        "text": "Dependable supply chains, uncompromising quality, and the agility to keep your research moving forward.",
+        "band": true
+      }
+    },
+    "trusted_logos": {
+      "type": "dodge-trusted-logos",
+      "blocks": {
+        "isia": { "type": "logo", "settings": { "name": "International Serum Industry Association" } },
+        "berkeley": { "type": "logo", "settings": { "name": "Berkeley" } },
+        "hhmi": { "type": "logo", "settings": { "name": "HHMI" } },
+        "stanford": { "type": "logo", "settings": { "name": "Stanford University" } },
+        "mdanderson": { "type": "logo", "settings": { "name": "MD Anderson Cancer Center" } },
+        "utsw": { "type": "logo", "settings": { "name": "UT Southwestern Medical Center" } }
+      },
+      "block_order": ["isia", "berkeley", "hhmi", "stanford", "mdanderson", "utsw"],
+      "settings": {
+        "heading": "Trusted by Leading Research & Scientific Organizations",
+        "text": "Dodge Scientific supports laboratories and organizations across academic research, biotechnology, healthcare, and commercial industries. Our focus on quality products, reliable supply, and responsive service has earned the trust of institutions and professionals across the United States and internationally.",
+        "logo_height": 44,
+        "band": false
+      }
+    },
+    "audience": {
+      "type": "dodge-audience",
+      "blocks": {
+        "academic": {
+          "type": "audience",
+          "settings": {
+            "icon": "building",
+            "title": "Academic & Research Institutions",
+            "text": "Supporting universities, research institutes, and innovation centers."
+          }
+        },
+        "biotech": {
+          "type": "audience",
+          "settings": {
+            "icon": "dna",
+            "title": "Biotechnology & Pharmaceutical",
+            "text": "Supporting biotechnology and pharmaceutical companies."
+          }
+        },
+        "healthcare": {
+          "type": "audience",
+          "settings": {
+            "icon": "shield",
+            "title": "Healthcare & Clinical Laboratories",
+            "text": "Supporting hospitals, medical offices, and diagnostic labs."
+          }
+        },
+        "government": {
+          "type": "audience",
+          "settings": {
+            "icon": "government",
+            "title": "Government & Public Agencies",
+            "text": "Supporting public sector organizations, including regulatory, forensic, and municipal operations."
+          }
+        },
+        "manufacturing": {
+          "type": "audience",
+          "settings": {
+            "icon": "factory",
+            "title": "Manufacturing & Production",
+            "text": "Providing products for manufacturing and controlled environments."
+          }
+        },
+        "food": {
+          "type": "audience",
+          "settings": {
+            "icon": "leaf",
+            "title": "Food, Agriculture & Commercial Services",
+            "text": "Supporting food production, agriculture, and a wide range of commercial service environments."
+          }
+        }
+      },
+      "block_order": ["academic", "biotech", "healthcare", "government", "manufacturing", "food"],
+      "settings": {
+        "heading": "Who We Work With",
+        "subheading": "Supporting organizations across research, healthcare, industry, and commercial service environments.",
+        "band": true
+      }
+    },
+    "testimonials": {
+      "type": "dodge-testimonials",
+      "blocks": {
+        "one": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "“Consistent performance across multiple lots. The serum integrated seamlessly into our workflow and passed internal validation without issue. Packaging and delivery have been reliable.”",
+            "name": "Senior Scientist",
+            "company": "Biotechnology Company"
+          }
+        },
+        "two": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "“High-quality consumables at competitive pricing. The gloves and pipette tips have performed consistently, and we’ve had no issues with supply or delivery.”",
+            "name": "Lab Manager",
+            "company": "Research Institute"
+          }
+        },
+        "three": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "“Orders arrive on time and are well packaged. Product quality has been consistent, and customer service is responsive and easy to work with.”",
+            "name": "Procurement Director",
+            "company": "Manufacturing Company"
+          }
+        }
+      },
+      "block_order": ["one", "two", "three"],
+      "settings": {
+        "heading": "What Our Customers Are Saying",
+        "subheading": "Feedback from laboratories and organizations across our network.",
+        "show_rating": true,
+        "band": false
+      }
+    },
+    "manufacturing": {
+      "type": "dodge-manufacturing",
+      "blocks": {
+        "supply": {
+          "type": "pillar",
+          "settings": {
+            "title": "Reliable Supply Chains",
+            "text": "Working with established U.S. manufacturing partners helps ensure consistent product availability and dependable fulfillment."
+          }
+        },
+        "quality": {
+          "type": "pillar",
+          "settings": {
+            "title": "Quality & Traceability",
+            "text": "Structured quality systems and documentation support product consistency, compliance, and full traceability."
+          }
+        },
+        "responsive": {
+          "type": "pillar",
+          "settings": {
+            "title": "Responsive & Flexible",
+            "text": "A combination of trusted partners and an agile supply model allows us to respond quickly to changing customer needs."
+          }
+        }
+      },
+      "block_order": ["supply", "quality", "responsive"],
+      "settings": {
+        "heading": "Strategic U.S. Manufacturing Partnerships",
+        "text_1": "Dodge Scientific works with U.S. based manufacturing partners to support reliable supply, consistent product quality, and full traceability across key product lines.",
+        "text_2": "These partnerships strengthen our ability to deliver dependable products while remaining responsive to the needs of laboratories, healthcare providers, and commercial service environments.",
+        "band": true
+      }
+    },
+    "affiliations": {
+      "type": "dodge-trusted-logos",
+      "blocks": {
+        "isia": { "type": "logo", "settings": { "name": "ISIA — Independently Audited Traceability Process" } },
+        "biocom": { "type": "logo", "settings": { "name": "Biocom California" } }
+      },
+      "block_order": ["isia", "biocom"],
+      "settings": {
+        "heading": "Industry Affiliations",
+        "text": "Dodge Scientific is a member of leading life science organizations, supporting quality, traceability, industry standards, and collaboration.",
+        "logo_height": 80,
+        "band": false
+      }
+    },
+    "quote_form": {
+      "type": "dodge-quote-form",
+      "settings": {
+        "heading": "Request a Quote",
+        "button_label": "Request Pricing",
+        "band": false,
+        "label_name": "Name",
+        "label_company": "Company or Organization",
+        "label_email": "Email Address",
+        "label_phone": "Phone Number",
+        "label_product": "Product Name",
+        "label_quantity": "Estimated Quantity",
+        "label_message": "Message",
+        "product_placeholder": "e.g., nitrile gloves, US Origin FBS, or 200 µL pipette tips"
+      }
+    },
+    "contact": {
+      "type": "dodge-contact",
+      "settings": {
+        "heading": "Contact Our Team",
+        "details_title": "Contact Details",
+        "phone_label": "Phone:",
+        "phone": "707-749-6444",
+        "email_label": "Email:",
+        "email": "info@dodgescientific.com",
+        "button_label": "Submit",
+        "band": false
       }
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "hero",
+    "product_lines",
+    "frequently_ordered",
+    "support_cta",
+    "why_choose",
+    "trusted_logos",
+    "audience",
+    "testimonials",
+    "manufacturing",
+    "affiliations",
+    "quote_form",
+    "contact"
   ]
 }

@@ -1,0 +1,163 @@
+{%- liquid
+  assign s = section.settings
+  assign form_id = 'DodgeQuoteForm-' | append: section.id
+-%}
+
+<div class="dodge-section{% if s.band %} dodge-section--band{% endif %}">
+  <div class="dodge-section__inner dodge-quote">
+    {%- if s.heading != blank -%}
+      <h2 class="dodge-head__title dodge-quote__title">{{ s.heading }}</h2>
+    {%- endif -%}
+
+    <div class="dodge-quote__panel">
+      {%- form 'contact', id: form_id, class: 'dodge-quote__form' -%}
+        <input type="hidden" name="contact[id]" value="{{ form_id }}">
+        <input type="hidden" name="contact[form_type]" value="Quote request">
+
+        {%- liquid
+          assign form_matches = false
+          if form.id == form_id or form.id == blank
+            assign form_matches = true
+          endif
+        -%}
+
+        {%- if form.errors and form_matches -%}
+          <p class="dodge-form__error" tabindex="-1" autofocus>
+            {{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}
+          </p>
+        {%- endif -%}
+
+        {%- if form.posted_successfully? and form_matches -%}
+          <p class="dodge-form__status" tabindex="-1" autofocus>{{ s.success_message }}</p>
+        {%- endif -%}
+
+        <div class="dodge-form__grid">
+          <div class="dodge-field">
+            <label class="dodge-field__label" for="{{ form_id }}-name">{{ s.label_name }}</label>
+            <input class="dodge-field__input" id="{{ form_id }}-name" type="text" name="contact[name]" autocomplete="name">
+          </div>
+
+          <div class="dodge-field">
+            <label class="dodge-field__label" for="{{ form_id }}-company">{{ s.label_company }}</label>
+            <input class="dodge-field__input" id="{{ form_id }}-company" type="text" name="contact[company]" autocomplete="organization">
+          </div>
+
+          <div class="dodge-field">
+            <label class="dodge-field__label" for="{{ form_id }}-email">{{ s.label_email }}</label>
+            <input class="dodge-field__input" id="{{ form_id }}-email" type="email" name="contact[email]" autocomplete="email" required>
+          </div>
+
+          <div class="dodge-field">
+            <label class="dodge-field__label" for="{{ form_id }}-phone">{{ s.label_phone }}</label>
+            <input class="dodge-field__input" id="{{ form_id }}-phone" type="tel" name="contact[phone]" autocomplete="tel">
+          </div>
+
+          <div class="dodge-field dodge-field--full">
+            <label class="dodge-field__label" for="{{ form_id }}-product">{{ s.label_product }}</label>
+            <select class="dodge-field__select" id="{{ form_id }}-product" name="contact[product]">
+              <option value="">{{ s.product_placeholder }}</option>
+              {%- assign options = s.product_options | newline_to_br | split: '<br />' -%}
+              {%- for option in options -%}
+                {%- assign option_label = option | strip -%}
+                {%- if option_label != blank -%}
+                  <option value="{{ option_label | escape }}">{{ option_label }}</option>
+                {%- endif -%}
+              {%- endfor -%}
+            </select>
+          </div>
+
+          <div class="dodge-field dodge-field--full">
+            <label class="dodge-field__label" for="{{ form_id }}-quantity">{{ s.label_quantity }}</label>
+            <input class="dodge-field__input" id="{{ form_id }}-quantity" type="text" name="contact[estimated_quantity]">
+          </div>
+
+          <div class="dodge-field dodge-field--full">
+            <label class="dodge-field__label" for="{{ form_id }}-message">{{ s.label_message }}</label>
+            <textarea class="dodge-field__textarea" id="{{ form_id }}-message" name="contact[body]"></textarea>
+          </div>
+        </div>
+
+        <div class="dodge-quote__submit">
+          <button type="submit" class="dodge-btn">{{ s.button_label }}</button>
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .dodge-quote {
+    text-align: center;
+  }
+
+  .dodge-quote__title {
+    margin-block-end: 36px;
+  }
+
+  .dodge-quote__panel {
+    max-width: 904px;
+    margin-inline: auto;
+    padding: 40px;
+    background: #f7f9fa;
+    border: 1px solid var(--dodge-card-border);
+    border-radius: var(--dodge-card-radius);
+    text-align: start;
+  }
+
+  .dodge-quote__submit {
+    margin-block-start: 28px;
+    text-align: center;
+  }
+
+  .dodge-quote__submit .dodge-btn {
+    min-width: 190px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .dodge-quote__panel { padding: 24px; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Dodge — Request a quote",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Request a Quote" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Request Pricing" },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thanks — we received your request and will be in touch shortly."
+    },
+    { "type": "checkbox", "id": "band", "label": "Use light background", "default": false },
+    { "type": "header", "content": "Field labels" },
+    { "type": "text", "id": "label_name", "label": "Name", "default": "Name" },
+    { "type": "text", "id": "label_company", "label": "Company", "default": "Company or Organization" },
+    { "type": "text", "id": "label_email", "label": "Email", "default": "Email Address" },
+    { "type": "text", "id": "label_phone", "label": "Phone", "default": "Phone Number" },
+    { "type": "text", "id": "label_product", "label": "Product", "default": "Product Name" },
+    { "type": "text", "id": "label_quantity", "label": "Quantity", "default": "Estimated Quantity" },
+    { "type": "text", "id": "label_message", "label": "Message", "default": "Message" },
+    { "type": "header", "content": "Product dropdown" },
+    {
+      "type": "text",
+      "id": "product_placeholder",
+      "label": "Placeholder",
+      "default": "e.g., nitrile gloves, US Origin FBS, or 200 µL pipette tips"
+    },
+    {
+      "type": "textarea",
+      "id": "product_options",
+      "label": "Options (one per line)",
+      "default": "Serum\nLiquid Handling\nGloves\nCell Culture\nDrosophila\nCleanroom Supplies\nPCR\nHPLC & LC-MS\nHistology & Pathology\nCold Storage"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dodge — Request a quote"
+    }
+  ]
+}
+{% endschema %}

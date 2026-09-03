@@ -1,0 +1,252 @@
+/* Dodge Scientific — design system tokens and shared section styles.
+   Mirrors the Figma "Home page" frame (1920 wide, 1200 content, 360 side gutters). */
+
+:root {
+  --dodge-primary: #1f6f78;
+  --dodge-primary-hover: #185a62;
+  --dodge-ink: #2f3a3f;
+  --dodge-muted: #6b7780;
+  --dodge-band: #eaeef0;
+  --dodge-line: #e2e7ea;
+  --dodge-card-border: #e6ebee;
+  --dodge-star: #f5a623;
+  --dodge-surface: #fff;
+
+  --dodge-content: 1200px;
+  --dodge-gutter: 24px;
+  --dodge-radius: 8px;
+  --dodge-card-radius: 10px;
+}
+
+.dodge-section {
+  font-family: var(--font-body--family);
+  color: var(--dodge-ink);
+  padding-block: 64px;
+}
+
+.dodge-section--band {
+  background: var(--dodge-band);
+}
+
+.dodge-section__inner {
+  max-width: calc(var(--dodge-content) + var(--dodge-gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--dodge-gutter);
+}
+
+/* ---- Section headers ---- */
+
+.dodge-head {
+  text-align: center;
+  margin-block-end: 40px;
+}
+
+.dodge-head__title {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--dodge-ink);
+  letter-spacing: 0;
+}
+
+.dodge-head__subtitle {
+  margin: 12px auto 0;
+  max-width: 800px;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  color: var(--dodge-muted);
+}
+
+.dodge-head--start {
+  text-align: start;
+}
+
+/* ---- Buttons ---- */
+
+.dodge-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: var(--dodge-radius);
+  background: var(--dodge-primary);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.dodge-btn:hover,
+.dodge-btn:focus-visible {
+  background: var(--dodge-primary-hover);
+  color: #fff;
+}
+
+.dodge-btn--block {
+  width: 100%;
+}
+
+.dodge-btn__arrow {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+.dodge-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--dodge-ink);
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.dodge-link:hover {
+  color: var(--dodge-primary);
+}
+
+/* ---- Cards ---- */
+
+.dodge-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--dodge-surface);
+  border: 1px solid var(--dodge-card-border);
+  border-radius: var(--dodge-card-radius);
+  padding: 24px;
+}
+
+.dodge-card__title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--dodge-ink);
+}
+
+.dodge-card__text {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--dodge-muted);
+}
+
+.dodge-card__media {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--dodge-radius);
+  overflow: hidden;
+  background: #f4f7f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dodge-card__media img,
+.dodge-card__media svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dodge-icon {
+  width: 34px;
+  height: 34px;
+  color: var(--dodge-primary);
+}
+
+/* ---- Grids ---- */
+
+.dodge-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.dodge-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.dodge-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.dodge-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+@media screen and (max-width: 989px) {
+  .dodge-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dodge-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media screen and (max-width: 749px) {
+  .dodge-section { padding-block: 44px; }
+  .dodge-head__title { font-size: 26px; }
+  .dodge-head__subtitle { font-size: 16px; line-height: 24px; }
+  .dodge-grid--2,
+  .dodge-grid--3,
+  .dodge-grid--4 { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---- Forms ---- */
+
+.dodge-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dodge-field__label {
+  font-size: 14px;
+  color: var(--dodge-muted);
+}
+
+.dodge-field__input,
+.dodge-field__select,
+.dodge-field__textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--dodge-line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--dodge-ink);
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.dodge-field__input:focus,
+.dodge-field__select:focus,
+.dodge-field__textarea:focus {
+  outline: 2px solid var(--dodge-primary);
+  outline-offset: -1px;
+}
+
+.dodge-field__textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+.dodge-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 24px;
+}
+
+.dodge-form__grid > .dodge-field--full {
+  grid-column: 1 / -1;
+}
+
+@media screen and (max-width: 749px) {
+  .dodge-form__grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+.dodge-form__status {
+  margin: 0 0 16px;
+  font-size: 15px;
+  color: var(--dodge-primary);
+}
+
+.dodge-form__error {
+  margin: 0 0 16px;
+  font-size: 15px;
+  color: #b3261e;
+}
